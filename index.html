@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For My Beloved ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{
+  background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
+  overflow-x:hidden;
+  color:#333;
+}
+
+/* Floating hearts */
+.heart{
+  position:fixed;
+  top:-10px;
+  color:#ff4d88;
+  animation:fall linear forwards;
+  z-index:9999;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+header{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  padding:20px;
+}
+
+header h1{
+  font-size:3rem;
+  color:#ff2e73;
+}
+
+.typing{
+  margin-top:15px;
+  font-size:1.3rem;
+  color:#444;
+}
+
+.section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+}
+
+.card{
+  max-width:900px;
+  background:white;
+  border-radius:25px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,0.15);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+.card img{
+  width:100%;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:20px;
+}
+
+.card p{
+  margin-bottom:15px;
+  line-height:1.7;
+  font-size:1.1rem;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  font-weight:600;
+  color:#ff2e73;
+}
+
+@media(max-width:768px){
+header h1{font-size:2.2rem}
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3.mpeg" type="audio/mpeg">
+</audio>
+
+<header>
+  <h1>For My Beloved ❤️</h1>
+  <div class="typing" id="typing"></div>
+  <p style="margin-top:15px">Touch Anywhere To Start Music 🎵</p>
+</header>
+
+<section class="section">
+<div class="card">
+<img src="imagie1.jpg.jpeg">
+<p>
+Tumhari aankhon mein jo pyar hai, wahi meri duniya hai. Jab bhi tum paas hoti ho,
+lagta hai sab kuch perfect hai.
+</p>
+<p>
+You are the reason my heart smiles every single day. With you, even silence
+feels like the sweetest conversation.
+</p>
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<img src="imagie2.jpg.jpeg">
+<p>
+Tum meri zindagi ki sabse khoobsurat aadat ban chuki ho. Tumhare bina sab adhoora
+lagta hai.
+</p>
+<p>
+Every moment with you becomes a memory I want to hold forever. You make my
+world softer, brighter and full of love.
+</p>
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<img src="imagie3.jpg.jpeg">
+<p>
+Main wada karta hoon, har khushi mein, har mushkil mein, main hamesha tumhare
+saath rahunga.
+</p>
+<p>
+I don’t need anything else, because having you in my life is already my
+greatest blessing.
+</p>
+</div>
+</section>
+
+<footer>
+Made With Endless Love ❤️
+</footer>
+
+<script>
+const music = document.getElementById('bgMusic');
+let started = false;
+
+function startMusic(){
+if(!started){
+music.play();
+started=true;
+}
+}
+
+document.addEventListener('click',startMusic);
+document.addEventListener('touchstart',startMusic);
+
+/* typing effect */
+const text = "You are my today, my tomorrow, and my forever ❤️";
+let index = 0;
+function type(){
+if(index < text.length){
+document.getElementById('typing').innerHTML += text.charAt(index);
+index++;
+setTimeout(type,60);
+}
+}
+type();
+
+/* falling hearts */
+function createHeart(){
+const heart = document.createElement('div');
+heart.classList.add('heart');
+heart.innerHTML = '❤️';
+heart.style.left = Math.random()*100+'vw';
+heart.style.fontSize = (Math.random()*20+15)+'px';
+heart.style.animationDuration = (Math.random()*3+3)+'s';
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
